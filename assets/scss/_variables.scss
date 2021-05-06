@@ -1,0 +1,106 @@
+// grid
+$breakpoints-3xsmall:                   320px;
+$breakpoints-2xsmall:                   375px;
+$breakpoints-xsmall:                    425px;
+$breakpoints-small:                     576px;
+$breakpoints-medium:                    768px;
+$breakpoints-large:                     992px;
+$breakpoints-xlarge:                    1200px;
+
+// color
+$colour-neutral-white:                  #ffffff;
+$colour-neutral-grey-100:               #f5f5f5;
+$colour-neutral-grey-200:               #dfdfdf;
+$colour-neutral-grey-300:               #cccccc;
+$colour-neutral-grey-500:               #959595;
+$colour-neutral-grey-700:               #666666;
+$colour-neutral-grey-800:               #333333;
+$colour-neutral-grey-900:               #111111;
+
+$colour-brand-blue:                     #0058a3;
+$colour-blue-hover:                     #3379B5;
+$colour-blue-pressed:                   #004682;
+$colour-feedback-focus:                 #4595ff;
+
+$colour-brand-yellow:                   #ffdb00;
+$colour-yellow-hover:                   #FFE233;
+$colour-yellow-pressed:                 #CCAF00;
+
+$colour-feedback-warning:               #ffa524;
+$colour-orange-hover:                   #FFB750;
+$colour-orange-pressed:                 #E98900;
+
+$colour-feedback-error:                 #e00751;
+$colour-red-hover:                      #E63974;
+$colour-red-pressed:                    #B30641;
+
+$colour-feedback-confirmation:          #0a8a00;
+$colour-green-hover:                    #3BA133;
+$colour-green-pressed:                  #086E00;
+
+// typography
+$font-family-sc:                        roboto, helvetica, arial, sans-serif;
+$font-weight-normal:                    400;
+$font-weight-bold:                      700;
+
+$body-font-size-xs:                     0.75rem;        // 12px
+$body-line-height-xs:                   1.333;
+
+$body-font-size-s:                      0.875rem;       // 14px
+$body-line-height-s:                    1.7143;
+
+$body-font-size-m:                      1rem;           // 16px
+$body-line-height-m:                    1.5;
+
+$body-font-size-l:                      1.125rem;       // 18px
+$body-line-height-l:                    1.778;
+
+$title-font-size-h5:                    1.25rem;        // 20px
+$title-line-height-h5:                  1.2;
+
+$title-font-size-h4:                    1.5rem;         // 24px
+$title-line-height-h4:                  1.333;
+
+$title-font-size-h3:                    1.875rem;       // 30px
+$title-line-height-h3:                  1.333;
+
+$title-font-size-h2:                    2.375rem;       // 38px
+$title-line-height-h2:                  1.263;
+
+$title-font-size-h1:                    3rem;           // 48px
+$title-line-height-h1:                  1.167;
+
+// border
+$border-thickness-zero:                 0;
+$border-thickness-default:              1px;
+$border-thickness-double:               2px;
+$border-thickness-focus:                4px;
+$border-thickness-default-rem:          0.0625rem;
+$border-thickness-double-rem:           0.125rem;
+
+$border-radius-zero:                    0;
+$border-radius-xs:                      2px;
+$border-radius-s:                       4px;
+$border-radius-m:                       6px;
+$border-radius-l:                       8px;
+$border-radius-xl:                      40px;
+$border-radius-2xl:                     50%;
+
+// spacing
+$c-spacing-2xs:                         0.25rem;
+$c-spacing-xs:                          0.5rem;
+$c-spacing-s:                           0.75rem;
+$c-spacing-m:                           1rem;
+$c-spacing-l:                           1.5rem;
+$c-spacing-xl:                          2rem;
+$c-spacing-2xl:                         2.5rem;
+
+// shadow
+$box-shadow-l:                          0 2px 8px rgba(0, 0, 0, 0.33);
+
+//animation
+$animation-all:                         all .3s;
+$animation-timing:                      cubic-bezier(.4, 0, 0, 1);
+$animation-slow:                        0.8s;
+$animation-normal:                      0.3s;
+$animation-fast:                        0.2s;
