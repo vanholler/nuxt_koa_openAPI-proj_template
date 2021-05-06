@@ -1,0 +1,83 @@
+@import '@/assets/scss/_reset.scss';
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('~@/assets/fonts/RobotoRegular/RobotoRegular.eot');
+  src: url('~@/assets/fonts/RobotoRegular/RobotoRegular.woff') format('woff'),
+  url('~@/assets/fonts/RobotoRegular/RobotoRegular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('~@/assets/fonts/icomoon/icomoon.eot');
+  src:  url('~@/assets/fonts/icomoon/icomoon.eot?b23zn1#iefix') format('embedded-opentype'),
+  url('~@/assets/fonts/icomoon/icomoon.ttf?b23zn1') format('truetype'),
+  url('~@/assets/fonts/icomoon/icomoon.woff?b23zn1') format('woff'),
+  url('~@/assets/fonts/icomoon/icomoon.svg?b23zn1#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+* {
+  font-family: $font-family-sc;
+  font-size: $body-font-size-m;
+  line-height: $body-line-height-m;
+  font-weight: $font-weight-normal;
+}
+
+html, body {
+  height: 100%;
+}
+
+.my-x { margin: $c-spacing-m 0 }
+.mx-a { margin: 0 auto }
+.mb-xs { margin-bottom: $c-spacing-xs }
+.mb-m { margin-bottom: $c-spacing-m }
+.mb-xl {margin-bottom: $c-spacing-xl }
+
+.mt-m { margin-top: $c-spacing-m }
+
+.ta-c { text-align: center }
+.ta-r { text-align: right }
+.word-break { word-break: break-all }
+
+.icon {
+  cursor: pointer;
+  font-family: 'icomoon', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &.icon__cross::before {
+    content: "\ea0f";
+  }
+  &.icon__x::before {
+    content: "\e904";
+  }
+  &.icon__plus::before {
+    content: "\e903";
+  }
+  &.icon__check::before {
+    content: "\e900";
+  }
+  &.icon__dropdown::before {
+    content: "\e901";
+  }
+  &.icon__trash::before {
+    content: "\e902";
+  }
+  &.icon__profile::before {
+    content: "\e971";
+  }
+  &.icon__top-menu::before {
+    content: "\e9bd";
+  }
+  &.icon__exit::before {
+    content: "\ea14";
+  }
+}

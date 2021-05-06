@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  outline: none;
+}
+
+html {
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+span {
+  font-size: inherit;
+}
+
+img, audio, video {
+  max-width: 100%;
+  height: auto;
+}
+audio, canvas, iframe,
+video, img, svg {
+  vertical-align: middle;
+}
+iframe {
+  border: 0
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+  vertical-align: top;
+  box-shadow: none;
+}
+input, textarea,
+select, button {
+  border: none;
+  line-height: normal;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+select:hover {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td, th {
+  text-align: left;
+}
