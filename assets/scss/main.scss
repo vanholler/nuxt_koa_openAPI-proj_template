@@ -29,6 +29,9 @@
 html, body {
   height: 100%;
 }
+body {
+  background: #e0e0e0;
+}
 
 .my-x { margin: $c-spacing-m 0 }
 .mx-a { margin: 0 auto }
