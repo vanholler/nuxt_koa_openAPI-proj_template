@@ -120,25 +120,11 @@ async function start () {
 
   await connectDB()
 
-  if (protocol === 'https') {
-    try {
-      const options = {
-        key: fs.readFileSync(path.resolve(process.cwd(), 'common/SSL/key.pem'), 'utf8'),
-        cert: fs.readFileSync(path.resolve(process.cwd(), 'common/SSL/server.crt'), 'utf8')
-      }
-
-      https.createServer(options, app.callback()).listen(port, host)
-      console.log(`Server listening on https://${host}:${port}`)
-    } catch (e) {
-      console.error('Failed to start HTTPS server ', e)
-    }
-  } else {
-    try {
-      http.createServer(app.callback()).listen(port, host)
-      console.log(`Server listening on http://${host}:${port}`)
-    } catch (e) {
-      console.error('Failed to start HTTP server ', e)
-    }
+  try {
+    http.createServer(app.callback()).listen(port, host)
+    console.log(`Server listening on http://${host}:${port}`)
+  } catch (e) {
+    console.error('Failed to start HTTP server ', e)
   }
 
   // ---Socket Communication-----//
