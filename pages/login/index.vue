@@ -11,7 +11,7 @@
         :class="[{ active: isDisabled('signin') }]"
         @click.prevent="setComponent('signin')"
       >
-        Войти
+        Войти!
       </button>
     </div>
 
