@@ -4,11 +4,12 @@
       <h2>{{ title }}</h2>
     </header>
     <div v-if="feedback.type === 'register'">
-      <p>Bienvenue <strong>{{ feedback.data | name }}</strong>.</p>
-      <p> Un email vient d'être envoyé à l'adresse {{ feedback.data | email }} afin de compléter ton inscription.</p>
+      <p>Добро пожаловать <strong>{{ feedback.data | name }}</strong>.</p>
+      <p> Только что было отправлено письмо на адрес <strong>{{ feedback.data | email }}</strong> чтобы завершить регистрацию.</p>
+      <p>через несколько секунд будете перенаправлены на сервис</p>
     </div>
     <div v-else>
-      <p>Vous allez être redirigé(e) dans quelques instants...</p>
+      <p>Через несколько минут вы будете перенаправлены...</p>
     </div>
   </div>
 </template>
@@ -35,9 +36,12 @@ export default Vue.extend({
   computed: {
     title () {
       return this.feedback.type === 'signin'
-        ? 'Authentification effectuée'
-        : 'Inscription'
+        ? 'Аутентификация завершена'
+        : 'Надпись'
     }
+  },
+  mounted () {
+
   }
 })
 </script>
