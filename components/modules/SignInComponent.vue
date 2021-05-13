@@ -1,15 +1,15 @@
 <template>
   <form ref="form" action="" class="signin-form" @submit.prevent="handleForm">
-    <h2>Signin</h2>
+    <h2>Войти</h2>
     <div class="form-group">
-      <label for="email">Adresse électronique</label>
-      <input id="email" v-model="user.email" required type="email" placeholder="Adresse électronique">
+      <label for="email">Адрес эл.почты</label>
+      <input id="email" v-model="user.email" required type="email" placeholder="введите эл.почту">
     </div>
     <div class="form-group">
-      <label for="password">Mot de passe</label>
-      <input id="password" v-model="user.password" required type="password" placeholder="Mot de passe">
+      <label for="password">пароль</label>
+      <input id="password" v-model="user.password" required type="password" placeholder="пароль">
     </div>
-    <input :disabled="!isFormValid" type="submit" value="Signin">
+    <input :disabled="isFormValid" type="submit" value="Войти">
   </form>
 </template>
 
