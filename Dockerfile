@@ -1,15 +1,20 @@
-FROM node:12.16.2
+FROM node:12.15.0
 
-ENV WORKDIR=/app
-RUN mkdir -p ${WORKDIR}
+# создание директории приложения
+WORKDIR /usr/src/app
 
-COPY ./ ${WORKDIR}
+# установка зависимостей
+# символ астериск ("*") используется для того чтобы по возможности
+# скопировать оба файла: package.json и package-lock.json
+COPY package*.json ./
 
-WORKDIR ${WORKDIR}
 RUN npm install
-
+# Если вы создаете сборку для продакшн
+# RUN npm ci --only=production
 RUN npm run build
 
-EXPOSE 3000
+# копируем исходный код
+COPY . .
 
+EXPOSE 3000
 CMD [ "npm", "start" ]
