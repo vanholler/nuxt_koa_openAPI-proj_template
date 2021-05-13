@@ -51,8 +51,8 @@ async function start () {
   } = nuxt.options.server
 
   // Inside docker container listen on all ip addresses (0.0.0.0)
-  const host = '0.0.0.0'
-
+  // const host = '0.0.0.0'
+  const host = 'localhost'
   await nuxt.ready()
 
   if (config.dev) {
