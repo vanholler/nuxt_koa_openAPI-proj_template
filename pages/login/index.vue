@@ -5,16 +5,17 @@
         :class="[{ active: isDisabled('register') }]"
         @click.prevent="setComponent('register')"
       >
-        Register
+        Регистрация
       </button>
       <button
         :class="[{ active: isDisabled('signin') }]"
         @click.prevent="setComponent('signin')"
       >
-        Signin
+        Войти
       </button>
     </div>
 
+    <!--    TODO сделать поддержку авторизации через телефон или соц.сети-->
     <transition name="form" mode="out-in">
       <keep-alive>
         <component

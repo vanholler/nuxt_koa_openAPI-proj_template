@@ -1,27 +1,28 @@
 <template id="RegisterComponent">
   <form ref="form" action="" class="register-form" @submit.prevent="onSubmit">
-    <h2>Register</h2>
+    <h2>Регистрация</h2>
     <div class="form-group">
-      <label for="firstname">Prénom</label>
-      <input id="firstname" v-model.trim="user.firstname" required type="text" placeholder="Prénom">
+      <label for="firstname">Имя</label>
+      <input id="firstname" v-model.trim="user.firstname" required type="text" placeholder="Введите имя">
     </div>
     <div class="form-group">
-      <label for="lastname">Nom</label>
-      <input id="lastname" v-model.trim="user.lastname" required type="text" placeholder="Nom">
+      <label for="lastname">Фамилия</label>
+      <input id="lastname" v-model.trim="user.lastname" required type="text" placeholder="Введите фамилию">
     </div>
     <div class="form-group">
-      <label for="email">Adresse électronique</label>
-      <input id="email" v-model.trim="user.email" required type="email" placeholder="Adresse électronique">
+      <label for="email">Эл.почта</label>
+      <input id="email" v-model.trim="user.email" required type="email" placeholder="Введите эл.почту">
     </div>
     <div class="form-group">
-      <label for="password">Mot de passe</label>
-      <input id="password" v-model="user.password" required type="password" placeholder="Mot de passe">
+      <label for="password">Пароль</label>
+      <input id="password" v-model="user.password" required type="password" placeholder="пароль">
     </div>
     <div class="form-group">
-      <label for="passwordcheck">Vérification du mot de passe</label>
-      <input id="passwordcheck" v-model="user.passwordChck" required type="password" placeholder="Vérification du mot de passe">
+      <label for="passwordcheck">Потвердите пароль</label>
+      <input id="passwordcheck" v-model="user.passwordChck" required type="password" placeholder="потвердите пароль">
     </div>
-    <input type="submit" :disabled="!isFormValid" value="Register">
+    <!--    TODO сделать реализацию просмотра пароля-->
+    <input type="submit" :disabled="isFormValid" value="Зарегестрироваться">
   </form>
 </template>
 <script>
