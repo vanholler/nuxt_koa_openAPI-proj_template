@@ -1,6 +1,6 @@
-import fs from 'fs'
-import path from 'path'
-import https from 'https'
+// import fs from 'fs'
+// import path from 'path'
+// import https from 'https'
 import http from 'http'
 import Koa, { Context } from 'koa'
 import logger from 'koa-logger'
@@ -46,7 +46,6 @@ const jwtOptions = {
 async function start () {
   const nuxt = new Nuxt(config)
   const {
-    protocol,
     port
   } = nuxt.options.server
 
