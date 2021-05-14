@@ -6,7 +6,7 @@
     "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config server/index.ts --watch server",
     "start": "cross-env NODE_ENV=production ts-node server/index.ts",
     "build": "nuxt build",
-    "heroku-postbuild": "build --prod",
+    "heroku-postbuild": "build NODE_ENV=production",
     "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext .js,.vue,.ts --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
