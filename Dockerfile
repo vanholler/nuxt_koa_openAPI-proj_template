@@ -1,22 +1,22 @@
 FROM node:12
-
+ENV NODE_ENV production
 # создание директории приложения
-WORKDIR /app
+WORKDIR ./
 
 # установка зависимостей
 # символ астериск ("*") используется для того чтобы по возможности
 # скопировать оба файла: package.json и package-lock.json
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --production
 # Если вы создаете сборку для продакшн
 # RUN npm ci --only=production
-RUN npm ci --only=production
+# RUN npm ci --only=production
 
 RUN npm run build
 
 # копируем исходный код
-COPY . .
+COPY dist ./dist
 
 EXPOSE 8080
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "start" ]
