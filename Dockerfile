@@ -1,22 +1,25 @@
-FROM node:Latest
-#ENV NODE_ENV production
-# создание директории приложения
-WORKDIR ./
+FROM node:12-alpine
 
-# установка зависимостей
-# символ астериск ("*") используется для того чтобы по возможности
-# скопировать оба файла: package.json и package-lock.json
-COPY package*.json ./dist
+RUN mkdir -p /usr/src/nuxt-app
+WORKDIR /usr/src/nuxt-app
 
-RUN npm install --production
-# Если вы создаете сборку для продакшн
-# RUN npm ci --only=production
-# RUN npm ci --only=production
+#RUN apk update && apk upgrade
+# RUN apk add git
 
+# copy the app, note .dockerignore
+COPY . /usr/src/nuxt-app/
+RUN npm install
+
+# build necessary, even if no static files are needed,
+# since it builds the server as well
 RUN npm run build
 
-# копируем исходный код
-COPY dist ./dist
+# expose 5000 on container
+EXPOSE 3000
 
-EXPOSE 8080
-CMD [ "npm", "run", "start" ]
+# set app serving to permissive / assigned
+ENV NUXT_HOST=0.0.0.0
+# set app port
+ENV NUXT_PORT=3000
+
+CMD [ "npm", "start" ]
