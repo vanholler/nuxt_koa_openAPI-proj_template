@@ -1,4 +1,4 @@
-FROM node:12.15.0
+FROM node:12
 
 # создание директории приложения
 WORKDIR /usr/src/app
@@ -8,13 +8,15 @@ WORKDIR /usr/src/app
 # скопировать оба файла: package.json и package-lock.json
 COPY package*.json ./
 
-RUN npm install
+# RUN npm install
 # Если вы создаете сборку для продакшн
 # RUN npm ci --only=production
+RUN npm ci --only=production
+
 RUN npm run build
 
 # копируем исходный код
 COPY . .
 
-EXPOSE 3000
+EXPOSE 8080
 CMD [ "npm", "start" ]
