@@ -45,14 +45,12 @@ const jwtOptions = {
 
 async function start () {
   const nuxt = new Nuxt(config)
-  // const {
-  //   host,
-  //   port
-  // } = nuxt.options.server
+  const {
+    port
+  } = nuxt.options.server
 
   // Inside docker container listen on all ip addresses (0.0.0.0)
   const host = '0.0.0.0'
-  const port = process.env.PORT || 3000
   // const host = 'localhost'
   await nuxt.ready()
 
