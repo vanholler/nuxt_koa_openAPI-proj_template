@@ -1,1 +1,1 @@
-web: ./bin/www npm start
+web: /usr/src/app npm start
