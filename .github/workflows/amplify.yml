@@ -6,13 +6,10 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run build
-    start:
-      commands:
         - npm run start
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: dist
+    baseDirectory: /dist
     files:
       - '**/*'
   cache:

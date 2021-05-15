@@ -1,20 +1,25 @@
-FROM node:12.15.0
+FROM node:12-alpine
 
-# создание директории приложения
-WORKDIR /usr/src/app
+RUN mkdir -p /usr/src/nuxt-app
+WORKDIR /usr/src/nuxt-app
 
-# установка зависимостей
-# символ астериск ("*") используется для того чтобы по возможности
-# скопировать оба файла: package.json и package-lock.json
-COPY package*.json ./
+#RUN apk update && apk upgrade
+# RUN apk add git
 
+# copy the app, note .dockerignore
+COPY . /usr/src/nuxt-app/
 RUN npm install
-# Если вы создаете сборку для продакшн
-# RUN npm ci --only=production
+
+# build necessary, even if no static files are needed,
+# since it builds the server as well
 RUN npm run build
 
-# копируем исходный код
-COPY . .
-
+# expose 5000 on container
 EXPOSE 3000
+
+# set app serving to permissive / assigned
+ENV NUXT_HOST=0.0.0.0
+# set app port
+ENV NUXT_PORT=3000
+
 CMD [ "npm", "start" ]
