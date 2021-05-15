@@ -1,7 +1,3 @@
-// import fs from 'fs'
-// import path from 'path'
-// import https from 'https'
-import http from 'http'
 import Koa, { Context } from 'koa'
 import logger from 'koa-logger'
 import json from 'koa-json'
@@ -44,19 +40,28 @@ const jwtOptions = {
 }
 
 async function start () {
-  const nuxt = new Nuxt(config)
-  const {
-    port
-  } = nuxt.options.server
+  app.use(async function handleError (ctx, next) {
+    try {
+      await next()
+    } catch (err) {
+      ctx.status = err.statusCode || err.status || 500
+      ctx.body = err
+    }
+  })
 
-  // Inside docker container listen on all ip addresses (0.0.0.0)
-  const host = '0.0.0.0'
-  // const host = 'localhost'
+  const nuxt = new Nuxt(config)
+
+  const {
+    host = process.env.HOST || '127.0.0.1',
+    port = process.env.PORT || 3000
+  } = nuxt.options.server
   await nuxt.ready()
 
   if (config.dev) {
     const builder = new Builder(nuxt)
     await builder.build()
+  } else {
+    await nuxt.ready()
   }
 
   app.use(logger((str): void => {
@@ -119,12 +124,9 @@ async function start () {
 
   await connectDB()
 
-  try {
-    http.createServer(app.callback()).listen(port, host)
-    console.log(`Server listening on http://${host}:${port}`)
-  } catch (e) {
-    console.error('Failed to start HTTP server ', e)
-  }
+
+  app.listen(port, host)
+  console.info(`Server listening on http://${host}:${port}`)
 
   // ---Socket Communication-----//
   //   const io = socketIO(server)
