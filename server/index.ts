@@ -28,7 +28,7 @@ const jwtsecret = 'itsNewUser'
 const config = require('../nuxt.config.js')
 
 config.dev = app.env !== 'production'
-// test
+
 const limiter = RateLimit.middleware({
   interval: { min: 15 },
   max: 100
