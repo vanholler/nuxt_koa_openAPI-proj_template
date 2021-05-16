@@ -8,7 +8,7 @@ const jwtsecret = 'itsNewUser'
 // const UserAuth = require('../models/user')
 const router = new Router<DefaultState, Context>()
 
-router.post('/user', async (ctx: Context, next) => {
+router.post('/createUser', async (ctx: Context, next) => {
   try {
     ctx.body = await UserAuth.create(ctx.request.body)
   } catch (err) {
@@ -21,7 +21,11 @@ router.post('/user', async (ctx: Context, next) => {
 router.post('/login', async (ctx: Context, next) => {
   await passport.authenticate('local', (err, user) => {
     if (user === false) {
-      ctx.body = 'Login failed'
+      ctx.body = {
+        err,
+        user
+      }
+
       console.log('err', err)
     } else {
       // --payload - информация которую мы храним в токене и можем из него получать

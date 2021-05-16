@@ -6,8 +6,7 @@ import passport from 'koa-passport'
 import UserAuth from './models/user'
 import connectDB from './db'
 import console from './console.trace'
-// import router from './routers'
-import auth from './routers/auth'
+import router from './routers'
 
 // const socketioJwt = require('socketio-jwt')
 // const socketIO = require('socket.io')
@@ -73,10 +72,7 @@ async function start () {
   // app.use(cors())
   // require('./passport')
   app.use(passport.initialize())
-  // app.use(router.routes())
-
-  app.use(auth.routes()).use(auth.allowedMethods())
-  // app.use(router.routes()).use(router.allowedMethods())
+  app.use(router.routes()).use(router.allowedMethods())
 
   app.use((ctx: Context) => {
     ctx.status = 200
@@ -123,7 +119,6 @@ async function start () {
   )
 
   await connectDB()
-
 
   app.listen(port, host)
   console.info(`Server listening on http://${host}:${port}`)

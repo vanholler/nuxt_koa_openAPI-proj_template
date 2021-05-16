@@ -1,12 +1,5 @@
 import { LoggerAdaptToConsole } from 'console-log-json'
-import { Tracer, ConsoleRecorder } from 'zipkin'
-import CLSContext = require('zipkin-context-cls')
-
-export const tracer = new Tracer({
-  ctxImpl: new CLSContext('zipkin'),
-  recorder: new ConsoleRecorder(),
-  localServiceName: 'new app'
-})
+import { tracer } from './utils'
 
 const isProduction = process.env.NODE_ENV === 'production'
 

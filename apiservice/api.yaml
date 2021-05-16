@@ -1,0 +1,55 @@
+swagger: "2.0"
+info:
+  title: Simple API overview
+  version: v2
+paths:
+  /user:
+    post:
+      operationId: createUser
+      summary: createUsers in db
+      tags:
+        - userService
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          examples:
+            application/json: |-
+              {
+                  "versions": []
+              }
+  /login:
+    post:
+      operationId: login
+      summary: login users
+      tags:
+        - userService
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          examples:
+            application/json: |-
+              {
+                  "version": {}
+              }
+  /custom:
+    get:
+      operationId: getAuthInfo
+      summary: Show API version details
+      tags:
+        - userService
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: OK
+          examples:
+            application/json: |-
+              {
+                  "version": {}
+              }
+consumes:
+  - application/json
