@@ -15,11 +15,10 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "schedulework" #Must be unique in Heroku
           heroku_email: "vanholler@mail.ru"
-          usedocker: true
+          # usedocker: true
           #docker_build_args: |
           #  NODE_ENV
            # SECRET_KEY
         #env:
         #  NODE_ENV: production
         #  SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}
-
