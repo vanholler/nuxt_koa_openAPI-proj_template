@@ -1,5 +1,5 @@
 # schedule
-
+[![Deploy](https://github.com/vanholler/work_schedule/actions/workflows/blank.yml/badge.svg?branch=master)](https://github.com/vanholler/work_schedule/actions/workflows/blank.yml)
 ## Build Setup
 
 ```bash
