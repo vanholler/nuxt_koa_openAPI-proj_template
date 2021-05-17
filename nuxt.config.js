@@ -62,8 +62,43 @@ module.exports = {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
-    }
+      fileName: 'manifest.json',
+      meta: {
+        name: 'MISHA mobile',
+        short_name: 'MISHA mobile',
+        description: 'Mobile application MISHA',
+        background_color: '#ffffff',
+        theme_color: '#fff'
+      },
+      lang: 'ru',
+      start_url: '/',
+      display: 'fullscreen',
+      icon: {
+        iconSrc: '~/static/icon.png'
+      }
+    },
+    runtimeCaching: [
+      {
+        urlPattern: 'https://cdn.jsdelivr.net/npm/workbox-cdn@4.3.1/workbox/workbox-sw.js',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: '/img/',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: {
+          cacheName: 'images',
+          cacheableResponse: { statuses: [0, 200] }
+        }
+      },
+      {
+        urlPattern: '/_nuxt/',
+        handler: 'networkFirst',
+        method: 'GET'
+      }
+    ]
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

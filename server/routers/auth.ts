@@ -1,8 +1,8 @@
 import { DefaultState, Context } from 'koa'
 import Router from 'koa-router'
 import passport from 'koa-passport'
+import User from '../models/user'
 const jwt = require('jsonwebtoken')
-const UserAuth = require('../models/user')
 
 const jwtsecret = 'itsNewUser'
 // const UserAuth = require('../models/user')
@@ -10,7 +10,11 @@ const router = new Router<DefaultState, Context>()
 
 router.post('/createUser', async (ctx: Context, next) => {
   try {
-    ctx.body = await UserAuth.create(ctx.request.body)
+    const res = await User.create(ctx.request.body)
+    ctx.body = {
+      result: JSON.stringify(res),
+      success: true
+    }
   } catch (err) {
     ctx.status = 400
     ctx.body = err
@@ -19,10 +23,10 @@ router.post('/createUser', async (ctx: Context, next) => {
 })
 
 router.post('/login', async (ctx: Context, next) => {
+  console.log(ctx.request.body)
   await passport.authenticate('local', (err, user) => {
     if (user === false) {
       ctx.body = {
-        err,
         user
       }
 

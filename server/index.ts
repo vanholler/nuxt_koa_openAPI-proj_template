@@ -3,11 +3,9 @@ import logger from 'koa-logger'
 import json from 'koa-json'
 import bodyParser from 'koa-bodyparser'
 import passport from 'koa-passport'
-import UserAuth from './models/user'
 import connectDB from './db'
 import console from './console.trace'
 import router from './routers'
-
 // const socketioJwt = require('socketio-jwt')
 // const socketIO = require('socket.io')
 
@@ -21,11 +19,9 @@ const ExtractJwt = require('passport-jwt').ExtractJwt
 const RateLimit = require('koa2-ratelimit').RateLimit
 
 const jwtsecret = 'itsNewUser'
-
 // const server = app.listen(3000)
-
 const config = require('../nuxt.config.js')
-
+const User = require('./models/user')
 config.dev = app.env !== 'production'
 // test
 const limiter = RateLimit.middleware({
@@ -70,7 +66,6 @@ async function start () {
   app.use(bodyParser())
   app.use(limiter)
   // app.use(cors())
-  // require('./passport')
   app.use(passport.initialize())
   app.use(router.routes()).use(router.allowedMethods())
 
@@ -87,7 +82,7 @@ async function start () {
     session: false
   },
   function (email:any, password:any, done:any) {
-    UserAuth.findOne({ email }, (err:any, user:any) => {
+    User.findOne({ email }, (err:any, user:any) => {
       if (err) {
         return done(err)
       }
@@ -105,7 +100,7 @@ async function start () {
   // Expect JWT in the http head
 
   passport.use(new JwtStrategy(jwtOptions, function (payload:any, done:any) {
-    UserAuth.findById(payload.id, (err:any, user:any) => {
+    User.findById(payload.id, (err:any, user:any) => {
       if (err) {
         return done(err)
       }

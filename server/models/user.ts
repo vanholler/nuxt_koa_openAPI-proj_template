@@ -34,6 +34,8 @@ UserSchema.methods.checkPassword = function (password:any) {
   return crypto.pbkdf2Sync(password, this.salt, 1, 128, 'sha1') === this.passwordHash
 }
 
-const User = mongoose.model('UserAuth', UserSchema)
+// export default mongoose.model('UserAuth', UserSchema)
+// module.exports = mongoose.model('userAuth', UserSchema)
+const User = mongoose.model('userAuth', UserSchema)
 
-export default User
+export = User
